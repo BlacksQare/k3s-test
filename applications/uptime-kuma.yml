@@ -6,7 +6,7 @@ metadata:
 spec:
   source:
     repoURL: https://github.com/BlacksQare/k3s-test.git
-    path: apps/uptime-kuma
+    path: uptime-kuma
     targetRevision: master
   destination:
     server: https://kubernetes.default.svc
