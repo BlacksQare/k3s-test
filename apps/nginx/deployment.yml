@@ -21,6 +21,8 @@ spec:
           volumeMounts:
             - name: html-data
               mountPath: /usr/share/nginx/html
+            - name: config-data
+              mountPath: /etc/nginx/
       volumes:
         - name: html-data
           persistentVolumeClaim:
