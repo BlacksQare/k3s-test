@@ -27,7 +27,7 @@ spec:
     kind: Namespace
     # Name is optional. If specified, only resources with a matching name will be allowed.
     # Globs in Go's filepath.Match syntax are supported. Example: "team1-*".
-    name: ''
+    name: 'other-project-workloads'
 
   # Deny all Namespace resources from being created if their name starts with 'kube-'
   clusterResourceBlacklist:
@@ -51,10 +51,10 @@ spec:
 
   # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
   namespaceResourceWhitelist:
-  - group: 'apps'
-    kind: Deployment
-  - group: 'apps'
-    kind: StatefulSet
+    - group: '*'   # Allows resources in named groups (e.g., apps/Deployment)
+      kind: '*'
+    - group: ''    # Explicitly allows core resources (e.g., Service, ConfigMap, Secret)
+      kind: '*'
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:

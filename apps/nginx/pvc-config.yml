@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nginx-config-data
-  namespace: other-project-workload
+  namespace: other-project-workloads
 spec:
   accessModes:
     - ReadWriteOnce
