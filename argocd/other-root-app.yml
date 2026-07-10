@@ -11,7 +11,7 @@ spec:
     path: argocd/applications
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: other-project-workloads
   syncPolicy:
     automated:
       prune: true
