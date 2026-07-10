@@ -17,7 +17,7 @@ spec:
   # Only permit applications to deploy to the 'other-namespace' namespace or any namespace starting with 'other-namespace-' in the same cluster
   # Destination clusters can be identified by 'server', 'name', or both.
   destinations:
-  - namespace: default
+  - namespace: other-user-workloads
     server: https://kubernetes.default.svc
     name: in-cluster
 
@@ -35,6 +35,10 @@ spec:
       kind: Namespace
       # Name is optional. If specified, only resources with a matching name will be denied.
       name: 'kube-*'
+    - group: ''
+      kind: Namespace
+      # Name is optional. If specified, only resources with a matching name will be denied.
+      name: 'default'
 
   # # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   # namespaceResourceBlacklist:
