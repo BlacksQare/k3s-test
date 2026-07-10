@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: uptime-kuma
-  namespace: default
+  namespace: other-project-workload
 spec:
   replicas: 2
   selector:
