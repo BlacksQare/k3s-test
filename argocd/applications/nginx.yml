@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
-  namespace: other-project-workload
+  namespace: argocd
 spec:
   project: other-project
   source:

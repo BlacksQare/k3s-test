@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/BlacksQare/k3s-test.git
     targetRevision: master
-    path: argocd/applications/default
+    path: argocd/Applications
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
