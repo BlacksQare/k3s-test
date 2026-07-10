@@ -17,11 +17,7 @@ spec:
   # Only permit applications to deploy to the 'other-namespace' namespace or any namespace starting with 'other-namespace-' in the same cluster
   # Destination clusters can be identified by 'server', 'name', or both.
   destinations:
-  - namespace: other-namespace
-    server: https://kubernetes.default.svc
-    name: in-cluster
-  # Destinations also allow wildcard globbing
-  - namespace: other-namespace-*
+  - namespace: default
     server: https://kubernetes.default.svc
     name: in-cluster
 
