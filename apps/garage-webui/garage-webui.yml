@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: garage-webui
+  namespace: garage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: garage-webui
+  template:
+    metadata:
+      labels:
+        app: garage-webui
+    spec:
+      containers:
+        - name: garage-webui
+          image: khairul169/garage-webui:latest
+          ports:
+            - containerPort: 3909
+          env:
+            - name: API_BASE_URL
+              value: "http://garage:3903"
+            - name: API_ADMIN_KEY
+              value: "123456789"
+            - name: S3_ENDPOINT_URL
+              value: "http://garage:3900"
+          volumeMounts:
+            - name: garage-config
+              mountPath: /etc/garage.toml
+              subPath: garage.toml
+              readOnly: true
+      volumes:
+        - name: garage-config
+          configMap:
+            name: garage-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: garage-webui
+  namespace: garage
+spec:
+  selector:
+    app: garage-webui
+  type: NodePort
+  ports:
+    - port: 3909
+      targetPort: 3909
+      nodePort: 30909
